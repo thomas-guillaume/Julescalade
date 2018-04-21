@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Mon Site</title>
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <li><a href="index.html">I. Présentation</a></li>|
+                <li><a href="page2.html">II. Les théories de l'apprentissage</a></li>|
+                <li><a href="page3.html">III. La sécurité</a></li>
+            </ul>
+        </nav>
+
+        <span id="date"></span>
+        <span id="div_horloge"></span>
+        <script type="text/javascript">
+            window.onload = date('date');
+            window.onload = horloge('div_horloge');
+
+            function date(id)
+            {
+                date = new Date;
+                annee = date.getFullYear();
+                moi = date.getMonth();
+                mois = new Array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+                j = date.getDate();
+                jour = date.getDay();
+                jours = new Array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
+                resultat = jours[jour]+' '+j+' '+mois[moi]+' '+annee;
+                document.getElementById(id).innerHTML = resultat;
+                setTimeout('date("'+id+'");','1000');
+                return true;
+            }
+
+            function horloge(el) {
+                if(typeof el=="string") { el = document.getElementById(el); }
+                function actualiser() {
+                var date = new Date();
+                var str = date.getHours();
+                str += ':'+(date.getMinutes()<10?'0':'')+date.getMinutes();
+                str += ':'+(date.getSeconds()<10?'0':'')+date.getSeconds();
+                el.innerHTML = str;
+                }
+                actualiser();
+                setInterval(actualiser,1000);
+            }
+        </script>
+
+        <header><h1>Thème : Les enjeux de l’escalade à l’école et en-dehors de l’école</h1></header>
+
+        <h3>Sommaire :</h3>
+        <ul>
+            <li>I. Présentation escalade</li>
+            <ul>
+                <li>A. L’aspect culturel</li>
+                <li>B. Les enjeux en EPS</li>
+            </ul>
+            <li>II. Les théories de l’apprentissage en escalade</li>
+            <ul>
+                <li>A. Les théories cognitives</li>
+                <li>B. Les théories dynamiciennes</li>
+                <li>C. Les théories écologiques</li>
+            </ul>
+            <li>III. La sécurité en escalade</li>
+        </ul>
+
+        <a id="pic" href="ressources/image.jpg"><img src="ressources/smallimage.jpg" alt="escalade" /></a>
+
+        <div>
+            <h2>I. Présentation escalade</h2>
+
+            <h3>A. L’aspect culturel</h3>
+            <p>L’escalade activité qui fait son apparition aux Jeux olympiques de 2020 est en pleine démographisation. En effet l’escalade qui prône des valeurs écologiques du bienfait de la nature, enjeu politique actuel, est en parfaite adéquation avec les sensations recherchées par les individus. Aujourd’hui c’est la « rétroaction » (Vigarello, Regards sur le sport, INSEP, 2010) dans la recherche de sensations qui guide la motivation des pratiquants. Ce que permet l’essence de l’activité escalade. De fait nous pouvons observer la création de nombreuses salles de blocs, qui facilitent l’accès et la pratique de l’escalade, avec une augmentation croissante des pratiquants.</p>
+
+            <h3>B. Les enjeux en EPS</h3>
+            <p>L’enjeu en EPS est bien de préparer les élèves à pratiquer de manière pleine et totale ce type d’activité, pour permettre un épanouissement futur. Ainsi il en convient d’initier les élèves à l’escalade : à la pratique de la voie et/ou du bloc. Les empreintes physiques et émotionnelles laissées en EPS, sont bien les marqueurs qui donneront envie d’un réinvestissement ultérieur. Nous n’oublions cependant pas l’aspect sécuritaire, qui freine la pratique de la voie en particulier. L’EPS joue ici un rôle essentiel afin de faire comprendre la non-existence du risque objectif lorsque les consignes sont respectées. Et donc de faire émerger de fortes émotions en dépassant le risque subjectif perçu.</p>
+        </div>
+
+        <p>Scannez ce QR code avec votre smartphone pour en savoir plus :</p>
+        <img src="ressources/qrcode.png" alt="code" />
+
+        <footer>
+            <p>© Jules Quinton - Tous droits réservés<br /><a href="mailto:jules.chelsea@hotmail.com">Me contacter !</a></p>
+        </footer>
+    </body>
+</html>
